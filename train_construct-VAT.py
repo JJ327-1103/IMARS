@@ -3,15 +3,13 @@ import json
 import torch
 from modelscope import AutoModelForCausalLM, AutoTokenizer
 
-# 数据路径
-data_path = "/nfs/home/9105_zengjiandian/JJ327/LLM+MSA/MOSI/train_dataset.json"
+
+data_path = "your data_path"
 with open(data_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# 定义输出JSON文件路径
 output_json_path = "train_dataset_text_with_reasoning.json"
 
-# 加载模型和分词器
 model_name = "/nfs/home/9105_zengjiandian/JJ327/MSA/hub/qwen/Qwen2.5-72B-Instruct"
 print("开始加载模型...")
 model = AutoModelForCausalLM.from_pretrained(
